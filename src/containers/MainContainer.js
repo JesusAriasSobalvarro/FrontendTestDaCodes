@@ -7,10 +7,14 @@ import {
   Link
 } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Drawer, MenuList, MenuItem } from '@material-ui/core';
+import { Drawer, MenuList, MenuItem } from '@material-ui/core';
 import Games from './../components/Games';
 import Players from './../components/Players';
 import Statistics from './../components/Statistics';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles({
   list: {
@@ -20,6 +24,10 @@ const useStyles = makeStyles({
     width: '100%',
     height: '100%',
     objectFit: "cover"
+  },
+  appBar: {
+    boxShadow: 'none',
+    backgroundColor: "white"
   }
 });
 
@@ -40,43 +48,49 @@ function MainContainer() {
   const navbar = (
     <div
       className={classes.list}
-      >
+    >
       <div className={"sideBarBackground"}>
         <span>Test Name</span>
       </div>
-    <MenuList>
-      <MenuItem component={Link} to="/">
-        Games
+      <MenuList>
+        <MenuItem component={Link} to="/">
+          Games
       </MenuItem>
-      <MenuItem component={Link} to="/players">
-        Players
+        <MenuItem component={Link} to="/players">
+          Players
       </MenuItem>
-      <MenuItem component={Link} to="/statistics">
-        Statistics
+        <MenuItem component={Link} to="/statistics">
+          Statistics
       </MenuItem>
-    </MenuList>
+      </MenuList>
     </div>
   );
 
 
   return (
     <Router>
-      <Button onClick={toggleDrawer(true)}>Open Drawer</Button>
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar>
+          <IconButton onClick={toggleDrawer(true)} edge="start" className={classes.menuButton} aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
       <Drawer open={state.drawerOpen} onClose={toggleDrawer(false)}>
         {navbar}
       </Drawer>
-        
-        <Switch>
-          <Route path="/statistics">
-            <Statistics />
-          </Route>
-          <Route path="/players">
-            <Players />
-          </Route>
-          <Route path="/">
-            <Games />
-          </Route>
-        </Switch>
+
+      <Switch>
+        <Route path="/statistics">
+          <Statistics />
+        </Route>
+        <Route path="/players">
+          <Players />
+        </Route>
+        <Route path="/">
+          <Games />
+        </Route>
+      </Switch>
     </Router>
   );
 }

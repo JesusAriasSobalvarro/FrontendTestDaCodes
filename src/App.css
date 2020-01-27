@@ -42,3 +42,109 @@
   background-size: cover;
   min-height: 175pt;
 }
+
+.teamLogoThumbnail {
+  width: 40pt
+}
+
+.scoreText {
+  font-size: 2.5em
+}
+
+.teamName {
+  font-size: 0.65em;
+  color: white;
+}
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 600px) {
+  .teamLogoThumbnail {
+    width: 25pt
+  }
+  .scoreText {
+    font-size: 1.8em;
+    align-self: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15;
+    flex: 2;
+  }
+  .teamName {
+    font-size: 0.65em;
+    color: white;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) {
+  .teamLogoThumbnail {
+    width: 35pt
+  }
+  .scoreText {
+    font-size: 2em;
+    align-self: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15;
+    flex: 2;
+    ;
+  }
+  .teamName {
+    font-size: 0.8em;
+    color: white;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) {
+  .teamLogoThumbnail {
+    width: 40pt
+  }
+  .scoreText {
+    font-size: 2.3em;
+    align-self: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15;
+    flex: 2;
+  }
+  .teamName {
+    font-size: 0.85em;
+    color: white;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) {
+  .teamLogoThumbnail {
+    width: 50pt
+  }
+  .scoreText {
+    font-size: 2.5em;
+    align-self: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15;
+    flex: 2;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (min-width: 1200px) {
+  .teamLogoThumbnail {
+    width: 50pt
+  }
+}
