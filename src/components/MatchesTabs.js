@@ -67,7 +67,7 @@ export default function MatchesTab() {
 
   useEffect(() => {
     dispatch(fetchGameInfo());
-  });
+  }, [dispatch]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -86,26 +86,27 @@ export default function MatchesTab() {
 
     groupedMatches.forEach(match => {
       var matchesComponents = []
-      
+
       match.data.forEach(data => {
         var { local, opponent, opponent_image, datetime, home_score, away_score } = data
         matchesComponents.push(
-        <MatchInfo
-          key={local+opponent}
-          local={local}
-          opponent={opponent}
-          opponent_image={opponent_image}
-          datetime={datetime}
-          home_score={home_score}
-          away_score={away_score}
-        />);
+          <MatchInfo
+            key={local + opponent}
+            local={local}
+            opponent={opponent}
+            opponent_image={opponent_image}
+            datetime={datetime}
+            home_score={home_score}
+            away_score={away_score}
+          />);
       })
-      items.push(<>
+      items.push(<React.Fragment key={match.month}>
         <div key={match.month} className={classes.divisionContainer}>
           <span key={`${match.month}-span`} className={classes.divisionTextColor}>{match.month}</span>
         </div>
         {matchesComponents}
-      </>)
+      </React.Fragment>
+      )
     });
 
     return items;
