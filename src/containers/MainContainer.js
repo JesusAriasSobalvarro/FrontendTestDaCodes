@@ -16,6 +16,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import venadosLogo from './../assets/venados-logo.png';
+import { SwipeableDrawer } from '@material-ui/core';
 
 const useStyles = makeStyles({
   list: {
@@ -98,9 +99,9 @@ function MainContainer() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer open={state.drawerOpen} onClose={toggleDrawer(false)}>
+      <SwipeableDrawer open={state.drawerOpen} onClose={toggleDrawer(false)}>
         {navbar}
-      </Drawer>
+      </SwipeableDrawer>
 
       <Switch>
         <Route path="/statistics">
