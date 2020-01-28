@@ -15,6 +15,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import venadosLogo from './../assets/venados-logo.png';
 
 const useStyles = makeStyles({
   list: {
@@ -28,6 +29,22 @@ const useStyles = makeStyles({
   appBar: {
     boxShadow: 'none',
     backgroundColor: "white"
+  },
+  image: {
+    width: 50,
+    marginBottom: 10
+  },
+  whitText: {
+    color: "white",
+    fontSize: 13
+  },
+  sideBarAvatarContainer: {
+    display: "flex",
+    //backgroundColor: "green",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    paddingTop: 40,
+    marginLeft: 20
   }
 });
 
@@ -50,7 +67,12 @@ function MainContainer() {
       className={classes.list}
     >
       <div className={"sideBarBackground"}>
-        <span>Test Name</span>
+        <div className={classes.sideBarAvatarContainer}>
+
+        <img src={venadosLogo} className={classes.image} alt={'venadosLogo'} />
+        <span className={classes.whitText}>Venados User</span>
+        <span className={classes.whitText}>venados@gmail.com</span>
+        </div>
       </div>
       <MenuList>
         <MenuItem component={Link} to="/">

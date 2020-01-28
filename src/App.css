@@ -40,7 +40,7 @@
 .sideBarBackground {
   background-image: url(./assets/android-background.jpg);
   background-size: cover;
-  min-height: 175pt;
+  min-height: 150pt;
 }
 
 .teamLogoThumbnail {
@@ -54,6 +54,10 @@
 .teamName {
   font-size: 0.65em;
   color: white;
+}
+
+.playerModal {
+  width: 50%
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -75,6 +79,10 @@
   .teamName {
     font-size: 0.65em;
     color: white;
+  }
+
+  .playerModal {
+    width: 80%
   }
 }
 
@@ -99,6 +107,9 @@
     font-size: 0.8em;
     color: white;
   }
+  .playerModal {
+    width: 70%
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -121,6 +132,9 @@
     font-size: 0.85em;
     color: white;
   }
+  .playerModal {
+    width: 60%
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -138,6 +152,9 @@
     align-items: center;
     padding: 15;
     flex: 2;
+  }
+  .playerModal {
+    width: 50%
   }
 }
 
