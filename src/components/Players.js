@@ -8,7 +8,8 @@ import Modal from '@material-ui/core/Modal';
 import moment from "moment"
 import classnames from "classnames"
 import { fetchPlayersInfo } from "./../actions"
-import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux';
+
 const useStyles = makeStyles({
   root: {
     display: "flex",
@@ -18,16 +19,10 @@ const useStyles = makeStyles({
   },
   paper: {
     position: 'absolute',
-    //width: 400,
     outline: 0,
     backgroundColor: "white",
-    //width: "50%",
-    //padding: 20,
     display: "flex",
     flexDirection: "column"
-    //border: '2px so',
-    //boxShadow: theme.shadows[5],
-    //padding: theme.spacing(2, 4, 3),
   },
   modalPlayerPicContainer: {
     backgroundColor: "#30502B",
@@ -76,7 +71,6 @@ function getModalStyle() {
 }
 
 function Players() {
-  //const team = useSelector(state => state.playerInfo.allPlayers)
   const team = JsonMock.data.team;
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -97,7 +91,7 @@ function Players() {
     image: ""
   });
 
-useEffect(() => {
+  useEffect(() => {
     dispatch(fetchPlayersInfo());
   }, [dispatch]);
 
@@ -107,7 +101,6 @@ useEffect(() => {
     setSelectedPlayer(playerInfo[id])
   }
 
-  
   var playerInfoComponents = []
   var playerInfo = []
   _.each(team, items => {
@@ -127,10 +120,6 @@ useEffect(() => {
     });
   })
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
   const handleClose = () => {
     setOpen(false);
   };
@@ -148,24 +137,24 @@ useEffect(() => {
         <div style={modalStyle} className={classnames(classes.paper, 'playerModal')}>
           <div className={classes.modalPlayerPicContainer}>
             <span className={classes.whiteText}>FICHA TÉCNICA</span>
-            <img src={selectedPlayer.image} className={classes.playerModalPic} />
-<span className={classnames(classes.whiteText, classes.modalBodyInfo)}>{selectedPlayer.name} {selectedPlayer.first_surname}</span>
-  <span className={classnames(classes.whiteText, classes.modalBodyInfo)}>{selectedPlayer.position}</span>
+            <img src={selectedPlayer.image} className={classes.playerModalPic} alt={selectedPlayer.name + " " + selectedPlayer.first_surname} />
+            <span className={classnames(classes.whiteText, classes.modalBodyInfo)}>{selectedPlayer.name} {selectedPlayer.first_surname}</span>
+            <span className={classnames(classes.whiteText, classes.modalBodyInfo)}>{selectedPlayer.position}</span>
           </div>
           <div className={classes.modalPlayerInformation}>
 
             <span className={classes.modalTitleInfo}>FECHA DE NACIMIENTO</span>
-   <span className={classes.modalBodyInfo}>{moment(selectedPlayer.birthday).format("DD/MM/YYYY")}</span>
+            <span className={classes.modalBodyInfo}>{moment(selectedPlayer.birthday).format("DD/MM/YYYY")}</span>
             <span className={classes.modalTitleInfo}>LUGAR DE NACIMIENTO</span>
-   <span className={classes.modalBodyInfo}>{selectedPlayer.birth_place}</span>
+            <span className={classes.modalBodyInfo}>{selectedPlayer.birth_place}</span>
             <span className={classes.modalTitleInfo}>PESO</span>
-   <span className={classes.modalBodyInfo}>{selectedPlayer.weight ? selectedPlayer.weight + " KG" : "N/A"}</span>
+            <span className={classes.modalBodyInfo}>{selectedPlayer.weight ? selectedPlayer.weight + " KG" : "N/A"}</span>
             <span className={classes.modalTitleInfo}>ALTURA</span>
-   <span className={classes.modalBodyInfo}>{selectedPlayer.height ? selectedPlayer.height + " M" : "N/A"}</span>
+            <span className={classes.modalBodyInfo}>{selectedPlayer.height ? selectedPlayer.height + " M" : "N/A"}</span>
             <span className={classes.modalTitleInfo}>EQUIPO ANTERIOR</span>
-   <span className={classes.modalBodyInfo}>{selectedPlayer.last_team ? selectedPlayer.last_team : "N/A"}</span>
+            <span className={classes.modalBodyInfo}>{selectedPlayer.last_team ? selectedPlayer.last_team : "N/A"}</span>
           </div>
-          {/* <SimpleModal /> */}
+
         </div>
       </Modal>
     </div>

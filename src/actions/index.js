@@ -7,8 +7,6 @@ export const FETCH_PLAYERS_INFO_REQUEST = "FETCH_PLAYERS_INFO_REQUEST";
 export const FETCH_PLAYERS_INFO_SUCCESS = "FETCH_PLAYERS_INFO_SUCCESS";
 export const FETCH_PLAYERS_INFO_FAILURE = "FETCH_PLAYERS_INFO_FAILURE";
 
-
-
 export function fetchGamesInfoRequest() {
     return {
         type: FETCH_GAMES_INFO_REQUEST,
@@ -49,11 +47,6 @@ export function fetchPlayersInfoFailure(payload) {
         payload
     }
 }
-
-
-
-
-
 
 export const fetchGameInfo = () => {
     return async function (dispatch) {

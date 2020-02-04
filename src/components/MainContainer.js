@@ -16,7 +16,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import venadosLogo from './../assets/venados-logo.png';
-import { SwipeableDrawer } from '@material-ui/core';
 
 const useStyles = makeStyles({
   list: {
@@ -41,7 +40,6 @@ const useStyles = makeStyles({
   },
   sideBarAvatarContainer: {
     display: "flex",
-    //backgroundColor: "green",
     flexDirection: "column",
     alignItems: "flex-start",
     paddingTop: 40,
@@ -70,9 +68,9 @@ function MainContainer() {
       <div className={"sideBarBackground"}>
         <div className={classes.sideBarAvatarContainer}>
 
-        <img src={venadosLogo} className={classes.image} alt={'venadosLogo'} />
-        <span className={classes.whitText}>Venados User</span>
-        <span className={classes.whitText}>venados@gmail.com</span>
+          <img src={venadosLogo} className={classes.image} alt={'venadosLogo'} />
+          <span className={classes.whitText}>Venados User</span>
+          <span className={classes.whitText}>venados@gmail.com</span>
         </div>
       </div>
       <MenuList>
@@ -99,9 +97,9 @@ function MainContainer() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <SwipeableDrawer open={state.drawerOpen} onClose={toggleDrawer(false)}>
+      <Drawer open={state.drawerOpen} onClose={toggleDrawer(false)}>
         {navbar}
-      </SwipeableDrawer>
+      </Drawer>
 
       <Switch>
         <Route path="/statistics">

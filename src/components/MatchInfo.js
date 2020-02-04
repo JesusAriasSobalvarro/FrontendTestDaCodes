@@ -48,7 +48,7 @@ const useStyles = makeStyles({
 
 function MatchInfo(props) {
   const classes = useStyles();
-  const { local, opponent, opponent_image, datetime, home_score, away_score} = props;
+  const { local, opponent, opponent_image, datetime, home_score, away_score } = props;
   return (
     <div className={classes.root}>
       <div className={classes.itemContainer}>
@@ -57,12 +57,12 @@ function MatchInfo(props) {
         <span className={classes.date}>{moment(datetime).format('ddd')}</span>
       </div>
       <div className={classes.oppositeTeam}>
-        <img src={local ? venadosLogo : opponent_image} className={'teamLogoThumbnail'} alt={`homeTeamLogo`}/>
+        <img src={local ? venadosLogo : opponent_image} className={'teamLogoThumbnail'} alt={`homeTeamLogo`} />
         <span className='teamName'>{local ? "Venados F.C." : opponent}</span>
       </div>
       <span className='scoreText'>{home_score} - {away_score}</span>
       <div className={classes.oppositeTeam}>
-        <img src={local ? opponent_image : venadosLogo} className='teamLogoThumbnail' alt={'awayTeamLogo'}/>
+        <img src={local ? opponent_image : venadosLogo} className='teamLogoThumbnail' alt={'awayTeamLogo'} />
         <span className='teamName'>{local ? opponent : "Venados F.C."}</span>
       </div>
     </div>
